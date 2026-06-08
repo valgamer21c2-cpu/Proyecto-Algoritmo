@@ -8,4 +8,4 @@ class Modulo_Catalogo:
             for p in producto: 
                 linea += p.nombre + " "
             print(linea)
-        producto=[[1,2,3],[4,5,6],[7,8,9]]
+
