@@ -21,8 +21,9 @@ class Modulo_Venta:
             producto.cantidad_vendidos +=1
             self.productos_vendidos +=1
             self.dinero_cobrado +=precio
+            usuario.dinero_gastado += precio
             print("El producto está siendo dispensado")
-        
+            self.total_usuarios += 1
     def buscar_tarjeta(self, numero_tarjeta):
         pass
 
