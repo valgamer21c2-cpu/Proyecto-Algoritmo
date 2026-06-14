@@ -4,7 +4,7 @@ class Tarjeta:
         self.fecha_vencimiento = fecha_vencimiento
         self.cvc = cvc
         self.saldo = saldo
-        self.bando = banco
+        self.banco = banco
     def validar(self):
         pass
     def cifrar(self):

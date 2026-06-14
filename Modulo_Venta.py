@@ -1,22 +1,26 @@
+from Usuario import *
 class Modulo_Venta: 
-    def __init__(self, inventario):
+    def __init__(self, inventario, tarjetas, usuarios):
         self.inventario = inventario
+        self.tarjetas = tarjetas
+        self.usuario = usuarios
         self.productos_vendidos = 0
         self.dinero_cobrado = 0
         self.total_usuarios = 0
-    def buscar_precio(self, precio):
-        pass
     def realizar_venta(self):
-        coordenada=input("Ingrese la coordenada del producto: ") 
-        producto =self.inventario.buscar_producto(coordenada)
-        precio=self.buscar_precio(coordenada)
-        targeta=input("Ingrese número de targeta")
-        if targeta == " ":
+        coordenada = input("Ingrese la coordenada del producto: ") 
+        producto = self.inventario.buscar_producto(coordenada)
+        precio = producto.precio 
+        tarjeta = input("Ingrese número de tarjeta: ")
+        tarjeta = hash(tarjeta)
+        tarjeta = self.buscar_tarjeta(tarjeta)
+        if tarjeta == " ":
             return 
-        targeta=hash(targeta)
-        confirmar=input("Para confirmar la compra profavor escriba nombre del producto")
+        confirmar = input("Para confirmar la compra, por favor escriba el nombre del producto: ")
         if confirmar == producto.nombre:
-            targeta.saldo -= precio
+            usuario = input("Ingrese nu nombre de usuario: ")
+            usuario = self.buscar_usuario(usuario)
+            tarjeta.saldo -= precio
             producto.cantidad -=1 
             producto.cantidad_vendidos +=1
             self.productos_vendidos +=1
@@ -25,7 +29,16 @@ class Modulo_Venta:
             print("El producto está siendo dispensado")
             self.total_usuarios += 1
     def buscar_tarjeta(self, numero_tarjeta):
-        pass
-
+        for t in self.tarjetas:
+            if t.numero_tarjeta == numero_tarjeta:
+                return t
+        return " "
+    def buscar_usuario(self, usuario):
+        for u in self.usuarios:
+            if u.nombre == usuario:
+                return u
+        u = Usuario(usuario)
+        self.usuarios.append(u)
+        return u
 
     
