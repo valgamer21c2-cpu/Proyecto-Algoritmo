@@ -9,12 +9,17 @@ class Modulo_Restock:
     def cambiar_producto(self, coordenada):
         nuevo_producto = input("Ingrese el codigo del nuevo producto: ")
         cantidad = input("Ingrese la cantidad del nuevo producto: ")
-        producto = self.inventario.buscar_producto(coordenada)
-        if producto : 
-            producto.nombre = nuevo_producto
-            producto.cantidad = cantidad
+        est_producto = self.inventario.buscar_producto(coordenada)
+        if est_producto : 
+            est_producto.producto.nombre = nuevo_producto
+            precio = float(input("Ingrese el precio del nuevo producto: "))
+            est_producto.producto.precio = precio
+            est_producto.cantidad = cantidad
+            est_producto.cantidad_vendidos = 0
+            est_producto.ultimo_restock = cantidad
         else :
             self.invetario.agregar_producto(nuevo_producto, cantidad)
+
 
 
 
