@@ -7,6 +7,7 @@ class Modulo_Venta:
         self.productos_vendidos = 0
         self.dinero_cobrado = 0
         self.total_usuarios = 0
+        self.total_cantidad_vendidos = 0
     def realizar_venta(self):
         coordenada = input("Ingrese la coordenada del producto: ") 
         producto = self.inventario.buscar_producto(coordenada)
@@ -21,13 +22,13 @@ class Modulo_Venta:
             usuario = input("Ingrese nu nombre de usuario: ")
             usuario = self.buscar_usuario(usuario)
             tarjeta.saldo -= precio
-            producto.cantidad -=1 
-            producto.cantidad_vendidos +=1
-            self.productos_vendidos +=1
-            self.dinero_cobrado +=precio
+            producto.cantidad -= 1 
+            producto.cantidad_vendidos += 1
+            self.total_cantidad_vendidos += 1
+            self.productos_vendidos += 1
+            self.dinero_cobrado += precio
             usuario.dinero_gastado += precio
             print("El producto está siendo dispensado")
-            self.total_usuarios += 1
     def buscar_tarjeta(self, numero_tarjeta):
         for t in self.tarjetas:
             if t.numero_tarjeta == numero_tarjeta:
@@ -39,6 +40,5 @@ class Modulo_Venta:
                 return u
         u = Usuario(usuario)
         self.usuarios.append(u)
+        self.total_usuarios += 1
         return u
-
-    

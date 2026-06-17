@@ -1,18 +1,18 @@
 class Modulo_Reporte:
     def __init__(self, inventario):
         self.inventario = inventario
-    def mostrar_info(self, ventas, restock, productos, usuarios):
+    def mostrar_info(self, ventas, restock, usuarios):
         total_vendidos = 0
-        for producto in productos:
-            print("producto: "+ producto.nombre)
-            print("-ultimo_restock: "+ producto.ultimo_restock)
-            print("cantidad_vendidos: "+ producto.cantidad_vendidos)
+        for producto in self.inventario.estadistica_producto:
+            print("Producto: " + producto.producto.nombre)
+            print("Último_restock: " + producto.ultimo_restock)
+            print("Cantidad_vendidos: " + producto.cantidad_vendidos)
             total_vendidos += producto.cantidad_vendidos
-        print("total_vendidos:"+ producto.cantidad_vendidos)
-        print("dinero cobrado total cobrado por la maquina: "+ ventas.dinero_cobrado)
+        print("Total de productos vendidos: " + ventas.total_cantidad_vendidos)
+        print("Dinero total cobrado por la maquina: " + ventas.dinero_cobrado)
         for usuario in usuarios:
-            print("usuario:"+ usuario.dinero_gastado)
-        print("total usuarios: "+ ventas.total_usuarios)
+            print("usuario:" + usuario.dinero_gastado)
+        print("total usuarios: " + ventas.total_usuarios)
 
 
         
