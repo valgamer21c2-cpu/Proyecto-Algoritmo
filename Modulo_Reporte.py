@@ -1,7 +1,7 @@
 class Modulo_Reporte:
     def __init__(self, inventario):
         self.inventario = inventario
-    def mostrar_info(self, ventas, restock, usuarios):
+    def mostrar_info(self, ventas, usuarios):
         total_vendidos = 0
         for producto in self.inventario.estadistica_producto:
             print("Producto: " + producto.producto.nombre)

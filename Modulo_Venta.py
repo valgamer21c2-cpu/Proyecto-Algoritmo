@@ -12,6 +12,10 @@ class Modulo_Venta:
         coordenada = input("Ingrese la coordenada del producto: ") 
         producto = self.inventario.buscar_producto(coordenada)
         precio = producto.precio 
+        print(f"El precio del producto es {precio}")
+        continuar = input("¿Desea seguir con la compra? Ingrese '1' si la respuesta es Sí o '2' si la respuesta es NO: ")
+        if continuar == "1":
+            return 
         tarjeta = input("Ingrese número de tarjeta: ")
         tarjeta = hash(tarjeta)
         tarjeta = self.buscar_tarjeta(tarjeta)
