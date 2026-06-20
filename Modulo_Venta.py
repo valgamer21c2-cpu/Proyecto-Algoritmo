@@ -8,8 +8,7 @@ class Modulo_Venta:
         self.dinero_cobrado = 0
         self.total_usuarios = 0
         self.total_cantidad_vendidos = 0
-    def realizar_venta(self):
-        coordenada = input("Ingrese la coordenada del producto: ") 
+    def realizar_venta(self, coordenada):
         producto = self.inventario.buscar_producto(coordenada)
         precio = producto.precio 
         print(f"El precio del producto es {precio}")
@@ -23,7 +22,7 @@ class Modulo_Venta:
             return 
         confirmar = input("Para confirmar la compra, por favor escriba el nombre del producto: ")
         if confirmar == producto.nombre:
-            usuario = input("Ingrese nu nombre de usuario: ")
+            usuario = input("Ingrese su nombre de usuario: ")
             usuario = self.buscar_usuario(usuario)
             tarjeta.saldo -= precio
             producto.cantidad -= 1 
