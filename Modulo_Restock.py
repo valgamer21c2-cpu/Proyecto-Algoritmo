@@ -4,8 +4,8 @@ class Modulo_Restock:
     def actualizar(self, coordenada):
         cantidad_producto = input("Ingrese la nueva cantidad de producto: ")
         producto = self.inventario.buscar_producto(coordenada)
-        producto.cantidad += cantidad_producto
-        producto.ultimo_restock = cantidad_producto
+        producto.cantidad += int(cantidad_producto)
+        producto.ultimo_restock = int(cantidad_producto)
     def cambiar_producto(self, coordenada):
         nuevo_producto = input("Ingrese el codigo del nuevo producto: ")
         cantidad = input("Ingrese la cantidad del nuevo producto: ")

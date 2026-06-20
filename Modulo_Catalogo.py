@@ -6,6 +6,6 @@ class Modulo_Catalogo:
         for fila in self.inventario.productos:
             linea = " "
             for p in fila: 
-                linea += p.nombre + " "
+                linea += p.codigo + " "
             print(linea)
 

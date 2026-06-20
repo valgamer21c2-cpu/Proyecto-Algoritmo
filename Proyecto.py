@@ -4,9 +4,12 @@ from Usuario import Usuario
 from Modulo_Reporte import Modulo_Reporte
 from Modulo_Venta import Modulo_Venta 
 from Inventario import Inventario
+from Api import *
 inventario = Inventario()
+inventario.productos,lista_tarjetas = leer_datos ()
+inventario.iniciar_inventario ()
 usuarios = []
-ventas = Modulo_Venta(inventario)
+ventas = Modulo_Venta(inventario,lista_tarjetas,usuarios)
 restock = Modulo_Restock(inventario) 
 catalogo = Modulo_Catalogo(inventario)
 reporte = Modulo_Reporte(inventario)

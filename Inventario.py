@@ -6,9 +6,9 @@ class Inventario:
         self.productos = []
         self.estadistica_productos = []
     def buscar_producto(self, coordenadas):
-        for i_fila in range(len(self.estadistica_prductos)):
-            if i_fila +1 == coordenadas[1]:
-                for i_columna in range(len(i_fila)):
+        for i_fila in range(len(self.estadistica_productos)):
+            if i_fila +1 == int(coordenadas[1]):
+                for i_columna in range(len(self.estadistica_productos[i_fila])):
                     if self.columnas[i_columna] == coordenadas[0]:
                         return self.estadistica_productos[i_fila][i_columna]
         return ""
@@ -31,6 +31,18 @@ class Inventario:
                 if not agregado:
                     self.productos[fila].append(producto)
                     self.estadistica_productos[fila].append(estadistica)
+    def iniciar_inventario (self) :
+        indice = 0
+        for linea in self.productos :
+            self.estadistica_productos.append ([])
+            for p in linea :
+                e = Estadistica_producto (p,10)
+                self.estadistica_productos[indice].append (e)
+            indice += 1
+                
+
+        
+
         
                         
 
