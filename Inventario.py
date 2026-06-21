@@ -1,3 +1,4 @@
+from Validaciones import *
 from Producto import *
 from Estadistica_producto import *
 class Inventario:
@@ -15,7 +16,9 @@ class Inventario:
     def agregar_prducto(self, coordenada):
         nombre = input("Ingrese el nombre del producto que quiere agregar: ")
         precio = input("Ingrese el precio del producto que quiere agregar: ")
+        precio = validar_float(precio)
         cantidad = input("Ingrese la cantidad del producto que quiere agregar: ")
+        cantidad = validar_num(cantidad)
         producto =  Producto(nombre, precio)
         estadistica = Estadistica_producto(producto, cantidad)
         if len(self.productos) < coordenada[1]:
@@ -31,13 +34,13 @@ class Inventario:
                 if not agregado:
                     self.productos[fila].append(producto)
                     self.estadistica_productos[fila].append(estadistica)
-    def iniciar_inventario (self) :
+    def iniciar_inventario(self) :
         indice = 0
         for linea in self.productos :
-            self.estadistica_productos.append ([])
+            self.estadistica_productos.append([])
             for p in linea :
-                e = Estadistica_producto (p,10)
-                self.estadistica_productos[indice].append (e)
+                e = Estadistica_producto(p,10)
+                self.estadistica_productos[indice].append(e)
             indice += 1
                 
 
