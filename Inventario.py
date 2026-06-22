@@ -1,12 +1,17 @@
+#Castillo, Yorianny; Cafarelli, Valeria
+
 from Validaciones import *
 from Producto import *
 from Estadistica_producto import *
 class Inventario:
+    """Organiza los productos y sus estadísticas dentro de la máquina"""
     def __init__(self):
+        """Crea las listas principales del inventario"""
         self.columnas =["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
         self.productos = []
         self.estadistica_productos = []
     def buscar_producto(self, coordenadas):
+        """Busca un producto usando una coordenada como A1 o B2"""
         for i_fila in range(len(self.estadistica_productos)):
             if i_fila +1 == int(coordenadas[1]):
                 for i_columna in range(len(self.estadistica_productos[i_fila])):
@@ -14,6 +19,7 @@ class Inventario:
                         return self.estadistica_productos[i_fila][i_columna]
         return ""
     def agregar_prducto(self, coordenada):
+        """Agrega un producto nuevo en la coordenada indicada"""
         nombre = input("Ingrese el nombre del producto que quiere agregar: ")
         precio = input("Ingrese el precio del producto que quiere agregar: ")
         precio = validar_float(precio)
@@ -34,9 +40,10 @@ class Inventario:
                 if not agregado:
                     self.productos[fila].append(producto)
                     self.estadistica_productos[fila].append(estadistica)
-    def iniciar_inventario(self) :
+    def iniciar_inventario(self):
+        """Crea las estadísticas iniciales de todos los productos"""
         indice = 0
-        for linea in self.productos :
+        for linea in self.productos:
             self.estadistica_productos.append([])
             for p in linea :
                 e = Estadistica_producto(p,10)

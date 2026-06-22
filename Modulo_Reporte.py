@@ -1,7 +1,12 @@
+#Castillo, Yorianny; Cafarelli, Valeria
+
 class Modulo_Reporte:
+    """Muestra un reporte básico con ventas, restock y usuarios"""
     def __init__(self, inventario):
+        """Guarda el inventario que se usará para el reporte"""
         self.inventario = inventario
     def mostrar_info(self, ventas, usuarios):
+        """Imprime la información importante del inventario y las ventas"""
         total_vendidos = 0
         for linea in self.inventario.estadistica_productos:
             for producto in linea:

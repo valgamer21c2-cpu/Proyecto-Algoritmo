@@ -1,8 +1,12 @@
+#Castillo, Yorianny; Cafarelli, Valeria
+
 import pickle
 import requests
 from Producto import Producto
 from Tarjeta import Tarjeta
 def leer_api_tarjeta():
+    """Lee las tarjetas desde la API y las guarda en una lista"""
+
     url_clientes = "https://raw.githubusercontent.com/FernandoSapient/BPTSP05_2526-3/main/clientes.json"
 
     r1 = requests.get(url_clientes)
@@ -22,6 +26,8 @@ def leer_api_tarjeta():
     return lista_tarjetas
 
 def leer_api_productos(inventario):
+    """Lee productos desde la API y actualiza los precios del inventario"""
+
     url_productos = "https://raw.githubusercontent.com/FernandoSapient/BPTSP05_2526-3//main/productos.json"
 
     r2 = requests.get(url_productos)
@@ -53,7 +59,7 @@ def leer_api_productos(inventario):
             lista_productos[indice].append(producto)
             contador = 2
     """
-    
+
     for producto in productos:
         for fila in inventario.productos:
             encontrado = False
@@ -81,10 +87,12 @@ def guardar_archivo(estadistica_producto):
 """
 
 def guardar_archivo(estadistica_producto):
+    """Guarda el inventario en un archivo para no perder los datos"""
     with open("archivo.pkl", "wb") as archivo:
         pickle.dump(estadistica_producto, archivo)
 
 def leer_archivo():
+    """Lee el archivo guardado y devuelve los datos del inventario"""
     try:
         with open("archivo.pkl", "rb") as archivo:
             datos = pickle.load(archivo)

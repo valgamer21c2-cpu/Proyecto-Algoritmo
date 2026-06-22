@@ -1,7 +1,11 @@
+#Castillo, Yorianny; Cafarelli, Valeria
+
 from Validaciones import *
 from Usuario import *
 class Modulo_Venta: 
+    """Controla las ventas, los usuarios y el dinero cobrado"""
     def __init__(self, inventario, tarjetas, usuarios):
+        """Guarda el inventario, las tarjetas y la lista de usuarios"""
         self.inventario = inventario
         self.tarjetas = tarjetas
         self.usuarios = usuarios
@@ -10,6 +14,7 @@ class Modulo_Venta:
         self.total_usuarios = 0
         self.total_cantidad_vendidos = 0
     def realizar_venta(self, coordenada):
+        """Hace el proceso de compra de un producto paso a paso"""
         producto = self.inventario.buscar_producto(coordenada)
         if producto == "":
             print("No se econtró el producto")
@@ -42,11 +47,13 @@ class Modulo_Venta:
         else:
             print("El producto no fue encontrado, se cancela la venta\n")
     def buscar_tarjeta(self, numero_tarjeta):
+        """Busca una tarjeta por su número dentro de la lista"""
         for t in self.tarjetas:
             if t.numero_tarjeta == numero_tarjeta:
                 return t
         return " "
     def buscar_usuario(self, usuario):
+        """Busca un usuario y si no existe lo crea"""
         for u in self.usuarios:
             if u.nombre == usuario:
                 return u

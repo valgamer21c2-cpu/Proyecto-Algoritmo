@@ -1,3 +1,5 @@
+#Castillo, Yorianny; Cafarelli, Valeria
+
 from Modulo_Catalogo import Modulo_Catalogo
 from Modulo_Restock import Modulo_Restock
 from Usuario import Usuario
