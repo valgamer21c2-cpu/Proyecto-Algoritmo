@@ -19,7 +19,7 @@ while True:
     catalogo.mostrar_catalogo()
     print()
     input_usuario = input("Ingrese el código del prducto para ver el precio\nIntroduce RS para inciar el restock\nIntroduce RP para generar un reporte\nIngrese S para salir\n---> ")
-    if len(input_usuario) == "2" and input_usuario[0].isalpha() and input_usuario[1].isnumeric():
+    if len(input_usuario) == 2 and input_usuario[0].isalpha() and input_usuario[1].isnumeric():
         ventas.realizar_venta(input_usuario)
     elif input_usuario == "RS":
         opcion = input("Ingrese 1 para actualizar existencia del inventario\nIngrese 2 para cambiar producto\nIngrese 3 para salir\n --->")
